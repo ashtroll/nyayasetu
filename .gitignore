@@ -1,0 +1,35 @@
+.env
+.env.local
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.log
+.streamlit/
+.claude/
+nul
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Python tooling
+.mypy_cache/
+.ruff_cache/
+
+# Local binaries/runtime
+bin/rclone.exe
+bin/meilisearch.exe
+bin/tor/
+bin/tor_data/
+
+# Large/generated project artifacts
+data/
+database/
+dumps/

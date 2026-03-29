@@ -1,0 +1,5 @@
+SocksPort 9050
+ControlPort 9051
+CookieAuthentication 1
+DataDirectory C:\Users\as157\OneDrive\Desktop\Legallity\bin\tor_data
+Log notice file C:\Users\as157\OneDrive\Desktop\Legallity\bin\tor.log
