@@ -16,11 +16,16 @@ Usage:
 import os
 from pathlib import Path
 
-import chromadb
 import meilisearch
 import streamlit as st
-from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 from dotenv import load_dotenv
+
+try:
+    import chromadb
+    from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
+except ImportError:
+    chromadb = None
+    SentenceTransformerEmbeddingFunction = None
 
 load_dotenv()
 
@@ -53,6 +58,8 @@ def get_meili_index():
 
 @st.cache_resource(show_spinner="Loading embedding model (BAAI/bge-m3)...")
 def get_chroma_collection():
+    if chromadb is None or SentenceTransformerEmbeddingFunction is None:
+        return None
     try:
         ef = SentenceTransformerEmbeddingFunction(model_name=EMBED_MODEL)
         client = chromadb.PersistentClient(path=str(CHROMA_DB_DIR))
